@@ -3,8 +3,8 @@ document
   .addEventListener("click", downloadSVG);
 document.querySelector("#drawButton").addEventListener("click", createHouse);
 
-import clipper from 'https://cdn.jsdelivr.net/npm/js-angusj-clipper/web/+esm';
-import union from "https://cdn.jsdelivr.net/npm/@turf/union/+esm";
+
+import { union } from "https://cdn.jsdelivr.net/npm/martinez-polygon-clipping/+esm";
 
 let roomsDrawn = 0;
 const ROOM_LABELS = [
@@ -230,8 +230,8 @@ class House {
     this.clearSVG();
     this.rooms.forEach((room) => room.draw(this.svg));
     this.scalePlan();
-    const walls = this.getUniqueWalls();
-    this.drawWallsSVG(walls);
+    //const walls = this.getUniqueWalls();
+    //this.drawWallsSVG(walls);
   }
 
   scalePlan() {
@@ -458,17 +458,13 @@ class House {
     );
   }
 
-
-  offsetPolygon(polygon, delta) {
-    const scale = 100; // avoid float issues
-    const scaled = polygon[0].map(([x, y]) => ({ X: x * scale, Y: y * scale }));
-    const co = new clipper.ClipperOffset();
-    co.AddPath(scaled, clipper.JoinType.jtMiter, clipper.EndType.etClosedPolygon);
-    const result = [];
-    co.Execute(result, delta * scale);
-    return result[0].map(p => [p.X / scale, p.Y / scale]);
+ offsetPolygon(polygon, delta) {
+    const offset = new Offset();
+    const result = offset.data([polygon]).offset(delta);
+  
+    // Return the first polygon in case multiple are returned
+    return result[0];
   }
-
   drawWallsSVG(walls) {
     const roomPolygons = this.rooms.map((room) => [
       [
@@ -479,10 +475,14 @@ class House {
         [room.x, room.y],
       ],
     ]);
-    console.log(clipper);
-    const unioned = union.union(roomPolygons);
-    const outerPath = pathFromPolygon(offsetPolygon(unioned[0], 2.5));
-    const innerPath = pathFromPolygon(offsetPolygon(unioned[0], -2.5));
+    const unionAll = (polygons) =>
+      polygons.reduce((acc, poly) => union(acc, poly));
+
+    const unioned = unionAll(roomPolygons); // returns MultiPolygon or Polygon
+    const outerPath = this.pathFromPolygon(this.offsetPolygon(unioned[0], 2.5));
+    const innerPath = this.pathFromPolygon(
+      this.offsetPolygon(unioned[0], -2.5)
+    );
 
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("d", `${outerPath} ${innerPath}`);
