@@ -20,16 +20,16 @@
 }
 body {
     background-color: invert(var(--dark));
-   
     background-size: 120%;
     background-position-y: 400px;
     background-repeat: no-repeat;
   backdrop-filter: invert(100%);
     font-family: var(--body-font);
+    letter-spacing: -1px;
     background-image: url(3f0bc1812ee8484b9d564fb6c06e8f70.svg);
     color: var(--background);
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr;
     gap: 15px;
     padding: 0px;
     margin: 0;
@@ -118,7 +118,7 @@ textarea#prompt {
   margin:15px auto;
   width: 100%;
   border-radius: 0;
-  height: 200px;
+  
   white-space: normal;
   text-align: center;
   -moz-text-align-last: center; /* Firefox 12+ */
@@ -159,7 +159,8 @@ button:hover {
 
 svg { 
     background: none;
-    width: 400px;
+    width: 75vw;
+    height: 600px;
     border: none; 
      
 }

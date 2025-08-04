@@ -1,0 +1,21 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- ROOM 1 -->
+  <polygon points="50,50 200,50 200,200 50,200" fill="#FADADD" stroke="#222" stroke-width="1"/>
+  <text x="75" y="130" font-family="Arial" font-size="14" fill="#222">BATHROOM</text>
+
+  <!-- ROOM 2 -->
+  <polygon points="200,50 350,50 350,200 200,200" fill="#D0F0C0" stroke="#222" stroke-width="1"/>
+  <text x="225" y="130" font-family="Arial" font-size="14" fill="#222">LIBRARY</text>
+
+  <!-- ROOM 3 -->
+  <polygon points="50,200 200,200 200,350 50,350" fill="#ADD8E6" stroke="#222" stroke-width="1"/>
+  <text x="75" y="280" font-family="Arial" font-size="14" fill="#222">PLAYROOM</text>
+
+  <!-- ROOM 4 -->
+  <polygon points="200,200 350,200 350,350 200,350" fill="#FFD580" stroke="#222" stroke-width="1"/>
+  <text x="225" y="280" font-family="Arial" font-size="14" fill="#222">KITCHEN</text>
+
+  <!-- OUTLINE PATH -->
+  <path d="M50,50 L350,50 L350,350 L50,350 Z" 
+        fill="none" stroke="#000" stroke-width="4"/>
+</svg>
