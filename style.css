@@ -19,11 +19,10 @@
 
 }
 body {
-    background-color: invert(var(--dark));
+    background-color: #8d209b;
     background-size: 120%;
     background-position-y: 400px;
     background-repeat: no-repeat;
-  backdrop-filter: invert(100%);
     font-family: var(--body-font);
     letter-spacing: -1px;
     background-image: url(3f0bc1812ee8484b9d564fb6c06e8f70.svg);
@@ -56,6 +55,7 @@ h1 {
     font-weight: 100;
     color: var(--background);
     padding: 0;
+    line-break: 20px;
     margin:0;
     margin-left: auto;
     margin-right: auto;
@@ -132,6 +132,7 @@ textarea#prompt {
 button {
     display: block;
     padding: 15px;
+    margin: 20px;
     font-size: medium;
     font-family: var(--body-font);
     background-color: transparent ;
@@ -160,7 +161,7 @@ button:hover {
 svg { 
     background: none;
     width: 75vw;
-    height: 600px;
+    height: 500px;
     border: none; 
      
 }
@@ -170,7 +171,7 @@ main {
 }
 aside {
     
-    padding: 20px;
+    padding: 60px;
     border: none;
     
 }

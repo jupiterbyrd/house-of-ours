@@ -41,7 +41,7 @@ class Room {
     y = 0,
     width = 100,
     height = 100,
-    fill = "#ccc",
+    fill = "transparent",
     label = "",
   }) {
     // deep copy shape
@@ -196,7 +196,7 @@ class House {
     this.rooms.push(firstRoom);
     graph.addRoom(firstRoom);
 
-    const desiredRoomCount = 10;
+    const desiredRoomCount = 12;
 
     // Step 2: Add additional rooms adjacent to previous
     for (let i = 1; i < desiredRoomCount; i++) {
@@ -400,7 +400,7 @@ class House {
 
   randomColor() {
     const palette = ["#fce4ec", "#e0f7fa", "#fff3e0", "#ede7f6", "#f3e5f5"];
-    return palette[Math.floor(Math.random() * palette.length)];
+    return "transparent";
   }
 
   clearSVG() {
@@ -486,7 +486,7 @@ class House {
 
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("d", `${outerPath} ${innerPath}`);
-    path.setAttribute("fill", "black");
+    path.setAttribute("fill", "none");
     path.setAttribute("fill-rule", "evenodd");
     svg.appendChild(path);
 
