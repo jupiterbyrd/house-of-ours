@@ -561,12 +561,12 @@ function downloadSVG() {
 
   const a = document.createElement("a");
   a.href = url;
-  const text = getInput();
+  /*const text = getInput();
   let filename = "";
   for (let index = 0; index < 16; index++) {
     filename += text.charAt(Math.floor(Math.random() * text.length));
-  }
-  a.download = filename.toUpperCase() + ".svg";
+  }*/
+  a.download = "house" + ".svg";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
