@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RUMI'S HOUSE OF OURS</title>
+  <link rel="stylesheet" href="style.css"></link>
+  <link rel="icon" type="image/x-icon" href="star.png">
+</head>
+<body>
+    <img id="grainFilter" class="backImage" src="noisy-background.jpg"/>
+    
+    <aside>
+        <h1>RUMI'S HOUSE OF OURS</h1>
+        <h2>by Jupiterbyrd</h2>
+        <div id="parameterMenu">
+            <textarea autocomplete="on" autofocus="on" id="prompt">What's on your mind?</textarea>  
+        </div>
+        <button id="drawButton">Draw House</button>
+       
+    </aside>
+    <main>
+        
+            <svg id="spiro" viewBox="-250 -250 500 500"></svg>
+    
+       
+        <button id="downloadButton">Download</button>
+    </main>
+</body>
+<script src="cosmetic.js"></script>
+<script src="https://unpkg.com/compromise@13.11.3/builds/compromise.min.js"></script>
+<script type="module" src="spiroquad.js"></script>
+
+</html>
